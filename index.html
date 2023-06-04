@@ -15,14 +15,15 @@
     <main>
         <h2>Battle!</h2>
         <img id="bg" src="images/monster_in_jungle.png" alt="An angry orc with red eyes and blue skin, dressed in battle armor and with a weapon in their hand, in a jungle.">
-        <p id="enemy-data">HP: 100/100</p>
+        <p class="enemy stats">HP: <span id="enemy-hp">100</span>/100</p>
         <p class="dialog">An angry orc has spotted you! Quick, do something!</p>
         <div class="user-section">
             <img id="hero" src="images/wizard.png" alt="Your hero, ready to battle the angry orc.">
             <div class="battle-menu">
-                <button class="action-1">Cast fireball</button>
-                <button class="action-2">Cast shield</button>
-                <button class="action-3">Cast heal</button>
+                <p id="hero stats">HP: <span id="hero-hp">100</span>/100</p>
+                <button class="action-1">Cast Lightning</button>
+                <button class="action-2">Cast Mist</button>
+                <button class="action-3">Cast Fireball</button>
                 <button class="action-4">Dance</button>
                 <p class="action-description">Choose an action</p>
             </div>
