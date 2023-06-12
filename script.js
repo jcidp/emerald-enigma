@@ -22,16 +22,18 @@ function activateAction(e) {
     console.log(e.target.value);
     actionButtons.forEach(btn => btn.disabled = true);
     dialog.textContent = "Your hero hits the enemy with a devastating attack!";
-    enemyHP -= 20;
+    enemyHP = Math.max(enemyHP - 60, 0);
     enemyHPText.textContent = enemyHP;
     setTimeout(enemyAction, 3000);
 }
 
 function enemyAction() {
+    if (enemyHP <= 0) return endBattle();
     dialog.textContent = "The orc gets angrier and strikes back!";
-    heroHP -= 20;
+    heroHP = Math.max(heroHP - 20, 0);
     heroHPText.textContent = heroHP;
     setTimeout(() => {
+        if (heroHP <= 0) return endBattle;
         actionButtons.forEach(btn => btn.disabled = false);
         dialog.textContent = "What will you do next?";
         actionDescription.textContent = "Choose an action";
@@ -40,4 +42,25 @@ function enemyAction() {
 
 function showDescription(e) {
     actionDescription.textContent = actionDescriptions.wizard[e.target.value - 1];
+}
+
+function endBattle() {
+    dialog.textContent = heroHP <= 0 ? "The hero can't keep fighting and falls in battle" :
+        "You defeated the mighty orc! You're amazing!";
+    actionDescription.textContent = "";
+    let resetBtn = document.createElement("button");
+    resetBtn.textContent = "Fight again!"
+    resetBtn.addEventListener("click", resetBattle);
+    document.querySelector(".battle-menu").appendChild(resetBtn);
+}
+
+function resetBattle(e) {
+    enemyHP = 100;
+    heroHP = 100;
+    enemyHPText.textContent = enemyHP;
+    heroHPText.textContent = heroHP;
+    actionDescription.textContent = "Choose an action";
+    dialog.textContent = "An angry orc has spotted you! Quick, do something!";
+    actionButtons.forEach(btn => btn.disabled = false);
+    document.querySelector(".battle-menu").removeChild(e.target);
 }
