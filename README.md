@@ -6,36 +6,32 @@ The game includes 3 screens:
 2. A hero selection page
 3. The battle screen
 
-TODO:
-- Define battle logic
-    - Decide on random multiplier
-    - Decide on accuracy
-    - Decide on stats
-    - Decide on crits
-    - Decide on additional action effects
-    - Decide on different hero actions
-    - Make general damage formula
-    - Build functions to calculate correct damage for each action
+TODOs:
+- Add character selection screen
+    - Display character stats and moves
+    - Show move description on hover/hold
+    - Customize battle hero image based on selection
+    - Setup the hero chosen in the battle simulator
+- Add start screen
+- Add an option to see action descriptions on mobile
+- Style the game properly and ensure responsiveness
+- Finish README files
+    - Change hero and action descriptions to the last version
+
+Nice-to-have:
 - Add animations when the hero and the enemy do actions
     - An basic mirroring animation when they do a move
     - A red coloring animation when they take damage
     - A disappearing animation when the orc dies
     - A gray color animation when the hero dies
     - Transition animations between screens
-- Add character selection screen
-- Customize actions based on hero
-- Customize texts based on hero
-- Add start screen
-- Add an option to see action descriptions on mobile
-- Customize texts based on actions
-- Style the game properly and ensure responsiveness
 - Add a toggle menu built on pure CSS
     - Turn music on/off
     - Turn sound effects on/off
     - Maybe return to hero selection or other screens
 - Add sound effects when the hero and the enemy do actions
 - Add soundtrack
-- Finish README files
+- Balance character stats and moves
 
 Wizard actions:
 1. Lightning: Releases a bolt of lightning that damages the enemy. Does 20 hp of damage and always hits.
