@@ -141,7 +141,15 @@ const characters = {
 const TIME_BETWEEN_TURNS = 3000;
 
 const enemy = "orc"; // since we only use one type of enemy
-let hero; // I'll make this change based on user input later on
+let hero;
+
+// Start Screen
+
+document.getElementById("start-btn").addEventListener("click", showSelectionScreen);
+
+function showSelectionScreen() {
+
+}
 
 // Hero Selection
 

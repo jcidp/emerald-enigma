@@ -9,18 +9,33 @@
 }
 
 #start-screen {
-    height: 100vh;
-    display: grid;
-    grid-template-rows: min-content 1fr min-content;
+    height: calc(100vh - 3em);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .bg-container {
     background-image: url(images/monster_in_jungle.png);
+    height: clamp(70%, 100vh, 90%);
+}
+
+.start-screen-text-container {
+    height: 100%;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 1.5rem;
+}
+
+.start-screen-text {
+    margin-top: 3rem;
 }
 
 #start-btn {
-    
-}
+    display: block;
+    margin: 0 auto;
+} 
 
 /* Hero Selection Screen */
 
