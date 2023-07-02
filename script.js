@@ -24,7 +24,9 @@ const characters = {
                 accuracy: 0.1,
                 text: "Performs a secret dance this hero practiced for decades"
             }
-        ]
+        ],
+        bio: "The Wizard trained at the Shrine of Wisdom for many decades. While preferring peaceful resolutions, he's master deadly spells to use when needed.",
+        source: "images/wizard.png"
     },
     orc: {
         stats: {
@@ -72,7 +74,9 @@ const characters = {
                 accuracy: 0.1,
                 text: "Screams to intimidate the enemy"
             }
-        ]
+        ],
+        bio: "After serving for years as a knight to a foreign king, The Warrior decided to leave that comfortable life for one of adventure, and combat.",
+        source: "images/warrior.png"
     },
     thief: {
         stats: {
@@ -99,7 +103,9 @@ const characters = {
                 accuracy: 0.1,
                 text: "Tries to get out of sight and deal a deadly attack"
             }
-        ]
+        ],
+        bio: "Born and raised in the streets of the capital, The Thief had to learn to survive by any means necessary. This made him tough, quiet, and deadly.",
+        source: "images/thief.png"
     },
     archer: {
         stats: {
@@ -126,14 +132,48 @@ const characters = {
                 accuracy: 0.1,
                 text: "Tries to outrun the enemy"
             }
-        ]
+        ],
+        bio: "The Archer grew up with elves, learning how to shoot a fly into a tree with an arrow, without killing it. He moves quickly and has a powerful arsenal.",
+        source: "images/archer.png"
     },
 };
 
 const TIME_BETWEEN_TURNS = 3000;
 
 const enemy = "orc"; // since we only use one type of enemy
-let hero = "archer"; // I'll make this change based on user input later on
+let hero; // I'll make this change based on user input later on
+
+// Hero Selection
+
+const heroes = document.querySelectorAll(".hero");
+const heroBio = document.getElementById("hero-bio");
+
+heroes.forEach(hero => hero.addEventListener("click", showBio));
+
+function showBio(e) {
+    //heroBio.textContent = characters[this.id].bio;
+    hero = this.id;
+    heroBio.innerHTML = `
+        <p>${characters[hero].bio}</p>
+        <span>Stats:</span>
+        <ul class="hero-bio stats">
+            <li>HP: ${characters[hero].stats.hp}</li>
+            <li>Attack: ${characters[hero].stats.attack}</li>
+            <li>Defense: ${characters[hero].stats.defense}</li>
+        </ul>
+        <span>Moves:</span>
+        <ul class="hero-bio moves">
+            <li>${characters[hero].moves[0].name} - Power: ${characters[hero].moves[0].power}, Accuracy: ${characters[hero].moves[0].accuracy * 100}</li>
+            <li>${characters[hero].moves[1].name} - Power: ${characters[hero].moves[1].power}, Accuracy: ${characters[hero].moves[1].accuracy * 100}</li>
+            <li>${characters[hero].moves[2].name} - ${characters[hero].moves[2].text}</li>
+        </ul>
+        <button id="start-battle">Battle as this hero!</button>
+    `;
+    document.getElementById("start-battle").addEventListener("click", setupBattle);
+}
+
+// Battle Simulator
+
 
 const actionButtons = document.querySelectorAll(".hero-action");
 const dialog = document.querySelector(".dialog");
@@ -158,7 +198,8 @@ function setupBattle() {
     heroHPText.textContent = heroHP;
     actionButtons.forEach((btn, i) => {
         btn.textContent = characters[hero].moves[i].name;
-    })
+    });
+    document.getElementById("hero").src = characters[hero].source;
 }
 
 function activateAction(e) {

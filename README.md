@@ -14,7 +14,8 @@ TODOs:
     - Setup the hero chosen in the battle simulator
 - Add start screen
 - Add an option to see action descriptions on mobile
-- Style the game properly and ensure responsiveness
+    - Showdown does do it by showing the description when you hold the button on mobile
+- Style the game properly and ensure mobile responsiveness
 - Finish README files
     - Change hero and action descriptions to the last version
 

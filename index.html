@@ -13,20 +13,52 @@
         <h1>Emerald Enigma</h1>
     </header>
     <main>
-        <h2>Battle!</h2>
-        <img id="bg" src="images/monster_in_jungle.png" alt="An angry orc with red eyes and blue skin, dressed in battle armor and with a weapon in their hand, in a jungle.">
-        <p class="enemy stats">HP: <span id="enemy-hp"></span>/<span id="initial-enemy-hp"></span></p>
-        <p class="dialog">An angry orc has spotted you! Quick, do something!</p>
-        <div class="user-section">
-            <img id="hero" src="images/wizard.png" alt="Your hero, ready to battle the angry orc.">
-            <div class="battle-menu">
-                <p id="hero stats">HP: <span id="hero-hp"></span>/<span id="initial-hero-hp"></span></p>
-                <button class="hero-action" id="action1" value="1"></button>
-                <button class="hero-action" id="action2" value="2"></button>
-                <button class="hero-action" id="action3" value="3"></button>
-                <p class="action-description">Choose an action</p>
+        <section id="start-screen">
+            <div class="bg-container">
+                <div class="start-screen-text-container">
+                    <p id="start-screen-text">After months of investigation, you believe the source of the streak of disappearances lies within the Emerald Jungle. Without much other choice, you ventured into its depths to find a clue that will help make sense of this mystery. That is, if you can survive the dangers inside...</p>
+                </div>
             </div>
-        </div>
+            <button id="start-btn">Start adventure</button>
+        </section>
+        <section id="selection">
+            <h2>Choose your hero</h2>
+            <div class="hero-container">
+                <div class="hero" id="thief">
+                    <img src="images/thief.png" alt="Thief">
+                    <span>The Thief</span>
+                </div>
+                <div class="hero" id="warrior">
+                    <img src="images/warrior.png" alt="Warrior">
+                    <span>The Warrior</span>
+                </div>
+                <div class="hero" id="wizard">
+                    <img src="images/wizard.png" alt="Wizard">
+                    <span>The Wizard</span>
+                </div>
+                <div class="hero" id="archer">
+                    <img src="images/archer.png" alt="Archer">
+                    <span>The Archer</span>
+                </div> 
+            </div>
+            <div id="hero-bio">Click/Tap a hero to get to know them</div>
+        </section>
+        <section id="battle">
+            <h2>Battle!</h2>
+            <img id="bg" src="images/monster_in_jungle.png" alt="An angry orc with red eyes and blue skin, dressed in battle armor and with a weapon in their hand, in a jungle.">
+            <p class="enemy stats">HP: <span id="enemy-hp"></span>/<span id="initial-enemy-hp"></span></p>
+            <p class="dialog">An angry orc has spotted you! Quick, do something!</p>
+            <div class="user-section">
+                <img id="hero" src="images/wizard.png" alt="Your hero, ready to battle the angry orc.">
+                <div class="battle-menu">
+                    <p id="hero stats">HP: <span id="hero-hp"></span>/<span id="initial-hero-hp"></span></p>
+                    <button class="hero-action" value="1"></button>
+                    <button class="hero-action" value="2"></button>
+                    <button class="hero-action" value="3"></button>
+                    <p class="action-description">Choose an action</p>
+                </div>
+            </div>
+        </section>
     </main>
     <footer></footer>
 </body>

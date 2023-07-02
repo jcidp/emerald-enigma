@@ -1,3 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#selection, #battle {
+    display: none;
+}
+
+#start-screen {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+}
+
+.bg-container {
+    background-image: url(images/monster_in_jungle.png);
+}
+
+#start-btn {
+    
+}
+
+/* Hero Selection Screen */
+
+.hero>img {
+    max-width: 100%;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    gap: 1em;
+}
+
+.hero-bio.stats{
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr); */
+    display: flex;
+    justify-content: space-around;
+}
+
+ul {
+    /* text-align: center; */
+    margin-top: 0;
+    padding-left: 10px;
+    /*list-style-type: none;*/
+}
+
+li::marker {
+    color: red;
+    content: "- "
+}
+
+/* Battle Screen */
+
 #bg {
     width: 100%;
     max-width: 512px;
