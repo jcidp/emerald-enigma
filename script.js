@@ -72,7 +72,7 @@ const characters = {
                 name: "Scream",
                 power: 200,
                 accuracy: 0.1,
-                text: "Screams to intimidate the enemy"
+                text: "Tries to intimidate the enemy with a scream"
             }
         ],
         bio: "After serving for years as a knight to a foreign king, The Warrior decided to leave that comfortable life for one of adventure, and combat.",
@@ -138,7 +138,7 @@ const characters = {
     },
 };
 
-const TIME_BETWEEN_TURNS = 300; // Use 3000 for normal gameplay
+const TIME_BETWEEN_TURNS = 3000; // Use 3000 for normal gameplay
 
 const enemy = "orc"; // since we only use one type of enemy
 let hero;
@@ -179,8 +179,8 @@ function showBio(e) {
         </ul>
         <span>Moves:</span>
         <ul class="hero-bio moves">
-            <li>${characters[hero].moves[0].name} - Power: ${characters[hero].moves[0].power}, Accuracy: ${characters[hero].moves[0].accuracy * 100}</li>
-            <li>${characters[hero].moves[1].name} - Power: ${characters[hero].moves[1].power}, Accuracy: ${characters[hero].moves[1].accuracy * 100}</li>
+            <li>${characters[hero].moves[0].name} - Power: ${characters[hero].moves[0].power}, Accuracy: ${characters[hero].moves[0].accuracy * 100}%</li>
+            <li>${characters[hero].moves[1].name} - Power: ${characters[hero].moves[1].power}, Accuracy: ${characters[hero].moves[1].accuracy * 100}%</li>
             <li>${characters[hero].moves[2].name} - ${characters[hero].moves[2].text}</li>
         </ul>
         <button id="start-battle">Battle as this hero!</button>
@@ -201,7 +201,6 @@ let enemyHP;
 let heroHP;
 
 actionButtons.forEach(btn => btn.addEventListener("click", activateAction));
-actionButtons.forEach(btn => btn.addEventListener("mouseover", showDescription));
 resetBtn.addEventListener("click", resetBattle);
 changeHeroBtn.addEventListener("click", showSelectionScreen);
 
@@ -218,15 +217,14 @@ function setupBattle() {
         btn.textContent = characters[hero].moves[i].name;
     });
     document.getElementById("hero").src = characters[hero].source;
-    actionDescription.textContent = "Choose an action";
     dialog.textContent = "An angry orc has spotted you! Quick, do something!";
+    loadDescriptions();
     actionButtons.forEach(btn => btn.disabled = false);
     resetBtn.style.display = "none";
     changeHeroBtn.style.display = "none";
 }
 
 function activateAction(e) {
-    console.log(e.target.value);
     actionButtons.forEach(btn => btn.disabled = true);
     let hit = characters[hero].moves[e.target.value - 1].accuracy > Math.random();
     let damage = hit ? calculateDamage(hero, enemy, e.target.value - 1) : 0;
@@ -250,15 +248,26 @@ function enemyAction() {
         if (heroHP <= 0) return endBattle();
         actionButtons.forEach(btn => btn.disabled = false);
         dialog.textContent = "What will you do next?";
-        actionDescription.textContent = "Choose an action";
     }, TIME_BETWEEN_TURNS);
 }
 
-function showDescription(e) {
-    actionDescription.textContent = e.target.value == 3 ?
-        characters[hero].moves[e.target.value - 1].text :
-        `Power: ${characters[hero].moves[e.target.value - 1].power},
-        Accuracy: ${Math.round(characters[hero].moves[e.target.value - 1].accuracy * 100)}%`;
+function loadDescriptions() {
+    // document.querySelectorAll(".move-description").forEach((move, i) => {
+    //     move.textContent = `${characters[hero].moves[i].name} - ` +
+    //         i === 2 ? `${characters[hero].moves[2].text}` :
+    //         `Pow: ${characters[hero].moves[i].power}, Acc: ${characters[hero].moves[i].accuracy * 100}%`
+    // });
+    // actionDescription.textContent = e.target.value == 3 ?
+    //     characters[hero].moves[e.target.value - 1].text :
+    //     `Power: ${characters[hero].moves[e.target.value - 1].power},
+    //     Accuracy: ${Math.round(characters[hero].moves[e.target.value - 1].accuracy * 100)}%`;
+    actionDescription.innerHTML = `
+        <ol>
+            <li class="move-description one">${characters[hero].moves[0].name} - Pow: ${characters[hero].moves[0].power}, Acc: ${characters[hero].moves[0].accuracy * 100}%</li>
+            <li class="move-description two">${characters[hero].moves[1].name} - Pow: ${characters[hero].moves[1].power}, Acc: ${characters[hero].moves[1].accuracy * 100}%</li>
+            <li class="move-description three">${characters[hero].moves[2].name} - ${characters[hero].moves[2].text}</li>
+        </ol>
+    `;    
 }
 
 function endBattle() {
@@ -274,7 +283,7 @@ function resetBattle(e) {
     heroHP = characters[hero].stats.hp;
     enemyHPText.textContent = enemyHP;
     heroHPText.textContent = heroHP;
-    actionDescription.textContent = "Choose an action";
+    loadDescriptions();
     dialog.textContent = "An angry orc has spotted you! Quick, do something!";
     actionButtons.forEach(btn => btn.disabled = false);
     resetBtn.style.display = "none";

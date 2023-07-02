@@ -63,7 +63,7 @@ ul {
     /*list-style-type: none;*/
 }
 
-li::marker {
+ul>li::marker {
     color: red;
     content: "- "
 }
@@ -81,4 +81,18 @@ li::marker {
 
 .user-section {
     display: flex;
+}
+
+.action-description {
+    font-size: 0.75rem;
+}
+
+.action-description {
+    padding-left: 1em;
+}
+
+#action-1:hover ~ div>ol>li.one,
+    #action-2:hover ~ div>ol>li.two,
+    #action-3:hover ~ div>ol>li.three {
+    font-weight: bold;
 }

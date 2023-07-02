@@ -7,12 +7,6 @@ The game includes 3 screens:
 3. The battle screen
 
 TODOs:
-- Add character selection screen
-    - Display character stats and moves
-    - Show move description on hover/hold
-    - Customize battle hero image based on selection
-    - Setup the hero chosen in the battle simulator
-- Add start screen
 - Add an option to see action descriptions on mobile
     - Showdown does do it by showing the description when you hold the button on mobile
 - Style the game properly and ensure mobile responsiveness
@@ -20,6 +14,9 @@ TODOs:
     - Change hero and action descriptions to the last version
 
 Nice-to-have:
+- Optimize assets
+    - Change images for ones that better fit the screens
+    - Optimize the image size
 - Add animations when the hero and the enemy do actions
     - An basic mirroring animation when they do a move
     - A red coloring animation when they take damage
