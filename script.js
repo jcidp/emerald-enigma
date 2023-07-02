@@ -95,7 +95,7 @@ const characters = {
                 name: "Low blow",
                 power: 36,
                 accuracy: 0.7,
-                text: "Goes for a low, but strong hit."
+                text: "Goes for a low, but strong hit"
             },
             {
                 name: "Hide",
@@ -138,17 +138,25 @@ const characters = {
     },
 };
 
-const TIME_BETWEEN_TURNS = 3000;
+const TIME_BETWEEN_TURNS = 300; // Use 3000 for normal gameplay
 
 const enemy = "orc"; // since we only use one type of enemy
 let hero;
+
+const startScreen = document.getElementById("start-screen");
+const selectionScreen = document.getElementById("selection");
+const battleScreen = document.getElementById("battle");
+
 
 // Start Screen
 
 document.getElementById("start-btn").addEventListener("click", showSelectionScreen);
 
 function showSelectionScreen() {
-
+    startScreen.style.display = "none";
+    battleScreen.style.display = "none";
+    selectionScreen.style.display = "block";
+    heroBio.textContent = "Click/Tap a hero to get to know them";
 }
 
 // Hero Selection
@@ -181,23 +189,25 @@ function showBio(e) {
 }
 
 // Battle Simulator
-
-
 const actionButtons = document.querySelectorAll(".hero-action");
 const dialog = document.querySelector(".dialog");
 const heroHPText = document.querySelector("#hero-hp");
 const enemyHPText = document.querySelector("#enemy-hp");
 const actionDescription = document.querySelector(".action-description");
+const resetBtn = document.querySelector(".battle-end.reset");
+const changeHeroBtn = document.querySelector(".battle-end.change-hero");
 
 let enemyHP;
 let heroHP;
 
 actionButtons.forEach(btn => btn.addEventListener("click", activateAction));
 actionButtons.forEach(btn => btn.addEventListener("mouseover", showDescription));
-
-setupBattle();
+resetBtn.addEventListener("click", resetBattle);
+changeHeroBtn.addEventListener("click", showSelectionScreen);
 
 function setupBattle() {
+    selectionScreen.style.display = "none";
+    battleScreen.style.display = "block";
     enemyHP = characters[enemy].stats.hp;
     heroHP = characters[hero].stats.hp;
     document.getElementById("initial-enemy-hp").textContent = enemyHP;
@@ -208,6 +218,11 @@ function setupBattle() {
         btn.textContent = characters[hero].moves[i].name;
     });
     document.getElementById("hero").src = characters[hero].source;
+    actionDescription.textContent = "Choose an action";
+    dialog.textContent = "An angry orc has spotted you! Quick, do something!";
+    actionButtons.forEach(btn => btn.disabled = false);
+    resetBtn.style.display = "none";
+    changeHeroBtn.style.display = "none";
 }
 
 function activateAction(e) {
@@ -250,10 +265,8 @@ function endBattle() {
     dialog.textContent = heroHP <= 0 ? `The ${hero} can't keep fighting and falls heroically in battle...` :
         `You defeated the mighty ${enemy}! You're amazing!`;
     actionDescription.textContent = "";
-    let resetBtn = document.createElement("button");
-    resetBtn.textContent = "Fight again!"
-    resetBtn.addEventListener("click", resetBattle);
-    document.querySelector(".battle-menu").appendChild(resetBtn);
+    resetBtn.style.display = "inline";
+    changeHeroBtn.style.display = "inline";
 }
 
 function resetBattle(e) {
@@ -264,7 +277,8 @@ function resetBattle(e) {
     actionDescription.textContent = "Choose an action";
     dialog.textContent = "An angry orc has spotted you! Quick, do something!";
     actionButtons.forEach(btn => btn.disabled = false);
-    document.querySelector(".battle-menu").removeChild(e.target);
+    resetBtn.style.display = "none";
+    changeHeroBtn.style.display = "none";
 }
 
 function calculateDamage(user, target, move) {
