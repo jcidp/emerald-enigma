@@ -89,7 +89,7 @@ const characters = {
                 name: "Stab",
                 power: 25,
                 accuracy: 1,
-                text: "Quickly stabs the enemy with an unavoidable attack"
+                text: "Quickly stabs the enemy with a piercing attack"
             },
             {
                 name: "Low blow",

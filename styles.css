@@ -1,40 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Almendra&family=MedievalSharp&display=swap');
+
+:root {
+    font-family: 'Almendra', serif;
+}
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-rows: min-content 1fr;
 }
 
 #selection, #battle {
     display: none;
 }
 
+header {
+    padding: 0.5em;
+    background-color: #2d4938;
+}
+
+h1 {
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+main {
+    font-size: 1em;
+}
+
+/* Start Screen */
+
 #start-screen {
-    height: calc(100vh - 3em);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    align-content: space-between;
+    background-image: url(images/monster_in_jungle.png);
+    min-height: calc(100vh - max(1.5rem, 27px) - 1em); /* To simplify this */
 }
 
 .bg-container {
-    background-image: url(images/monster_in_jungle.png);
-    height: clamp(70%, 100vh, 90%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    min-height: inherit;
+}
+
+.bg-container>h2, .start-screen-text-container, .btn-container {
+    padding: 0 2rem;
+}
+
+.bg-container>h2 {
+    font-size: 1.5rem;
+    padding-top: 1em;
+    padding-bottom: 3rem;
 }
 
 .start-screen-text-container {
-    height: 100%;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.4);
-    color: white;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .start-screen-text {
-    margin-top: 3rem;
+    margin-bottom: 3rem;
+    line-height: 1.5;
 }
 
 #start-btn {
     display: block;
-    margin: 0 auto;
+    margin: 1em auto;
+    padding: 0.15em 2em;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #a7813a;
+    color: white;
 } 
 
 /* Hero Selection Screen */
