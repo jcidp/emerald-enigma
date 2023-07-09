@@ -127,10 +127,10 @@ const characters = {
                 text: "Throws a bomb at the enemy's face"
             },
             {
-                name: "Run",
+                name: "Climb Tree",
                 power: 200,
                 accuracy: 0.1,
-                text: "Tries to outrun the enemy"
+                text: "Tries to attack the enemy from above"
             }
         ],
         bio: "The Archer grew up with elves, who trained him to be agile and an expert marksman.",
@@ -156,7 +156,7 @@ function showSelectionScreen() {
     startScreen.style.display = "none";
     battleScreen.style.display = "none";
     selectionScreen.style.display = "block";
-    heroBio.textContent = "Click/Tap a hero to get to know them";
+    heroBio.textContent = "Select a hero to get to know them";
 }
 
 // Hero Selection
@@ -267,9 +267,9 @@ function loadDescriptions() {
     //     Accuracy: ${Math.round(characters[hero].moves[e.target.value - 1].accuracy * 100)}%`;
     actionDescription.innerHTML = `
         <ol>
-            <li class="move-description one">${characters[hero].moves[0].name}: ${characters[hero].moves[0].power} pow, ${characters[hero].moves[0].accuracy * 100}% acc</li>
-            <li class="move-description two">${characters[hero].moves[1].name}: ${characters[hero].moves[1].power} pow, ${characters[hero].moves[1].accuracy * 100}% acc</li>
-            <li class="move-description three">${characters[hero].moves[2].name}: ${characters[hero].moves[2].text}</li>
+            <li class="move-description one"><b>${characters[hero].moves[0].name}</b>: ${characters[hero].moves[0].power} pow, ${characters[hero].moves[0].accuracy * 100}% acc</li>
+            <li class="move-description two"><b>${characters[hero].moves[1].name}</b>: ${characters[hero].moves[1].power} pow, ${characters[hero].moves[1].accuracy * 100}% acc</li>
+            <li class="move-description three"><b>${characters[hero].moves[2].name}</b>: ${characters[hero].moves[2].text}</li>
         </ol>
     `;    
 }

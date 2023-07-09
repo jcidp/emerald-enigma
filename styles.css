@@ -36,6 +36,8 @@ h1, button {
 
 main {
     font-size: 1em;
+    width: min(512px, 100%);
+    margin-inline: auto;
 }
 
 /* Start Screen */
@@ -126,18 +128,22 @@ ul>li::marker {
 }
 
 #start-battle {
-    margin: 0.5em auto;
+    margin: 0.5em auto 0;
 }
 
 /* Battle Screen */
 
+#enemy-container {
+    display: grid;
+    place-content: center;
+}
+
 #bg {
-    width: 100%;
-    max-width: 512px;
+    max-height: 512px;
 }
 
 #hero {
-    max-width: 90%;
+    max-height: 162px;
 }
 
 #battle h2 {
@@ -185,7 +191,11 @@ ul>li::marker {
 .action-description {
     font-size: 0.825rem;
     margin-bottom: 0.75em;
-    padding: 0 0.25em 0 1em;
+    padding: 0 0.25em;
+}
+
+.action-description>ol {
+    list-style-type: none;
 }
 
 .hero-action {
@@ -232,4 +242,9 @@ ul>li::marker {
 .hero {
     display: grid;
     justify-items: center;
+} */
+
+/* Media Queries for Desktop */
+/* @media (min-width: 641px) {
+
 } */

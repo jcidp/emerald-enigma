@@ -58,3 +58,6 @@ Orc actions:
 Image credits:
 - Hero and Monster images generated with hotpot.ai(https://hotpot.ai/art-generator)
 - Background jungle image generated with crayon.com(https://www.craiyon.com/)
+
+Color Pallet:
+- Created by Toby_Yasha on Lospec (https://lospec.com/palette-list/ty-adventure-kit-16)
