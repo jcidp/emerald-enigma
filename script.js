@@ -147,6 +147,17 @@ const startScreen = document.getElementById("start-screen");
 const selectionScreen = document.getElementById("selection");
 const battleScreen = document.getElementById("battle");
 
+addEventListener("DOMContentLoaded", loadImages);
+
+// Load other images after start screen background loads
+function loadImages() {
+    console.log("Loading images...");
+    document.querySelector("#thief>img").src = "images/thief.png";
+    document.querySelector("#warrior>img").src = "images/warrior.png";
+    document.querySelector("#wizard>img").src = "images/wizard.png";
+    document.querySelector("#archer>img").src = "images/archer.png";
+    document.getElementById("bg").src = "images/monster_in_jungle.png";
+}
 
 // Start Screen
 
