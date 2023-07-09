@@ -22,10 +22,10 @@ const characters = {
                 name: "Dance",
                 power: 200,
                 accuracy: 0.1,
-                text: "Performs a secret dance this hero practiced for decades"
+                text: "Performs a an ancient dance"
             }
         ],
-        bio: "The Wizard trained at the Shrine of Wisdom for many decades. While preferring peaceful resolutions, he's master deadly spells to use when needed.",
+        bio: "The Wizard trained at the Shrine of Wisdom for decades, perfecting his deadly spells.",
         source: "images/wizard.png"
     },
     orc: {
@@ -72,10 +72,10 @@ const characters = {
                 name: "Scream",
                 power: 200,
                 accuracy: 0.1,
-                text: "Tries to intimidate the enemy with a scream"
+                text: "Attempts to intimidate the enemy"
             }
         ],
-        bio: "After serving for years as a knight to a foreign king, The Warrior decided to leave that comfortable life for one of adventure, and combat.",
+        bio: "The Warrior served for years as a knight to a foreign king, but left for a life of adventure.",
         source: "images/warrior.png"
     },
     thief: {
@@ -101,10 +101,10 @@ const characters = {
                 name: "Hide",
                 power: 200,
                 accuracy: 0.1,
-                text: "Tries to get out of sight and deal a deadly attack"
+                text: "Tries to get out of sight and attack"
             }
         ],
-        bio: "Born and raised in the streets of the capital, The Thief had to learn to survive by any means necessary. This made him tough, quiet, and deadly.",
+        bio: "The Thief was born and raised in the streets of the capital, learning to survive by any means necessary.",
         source: "images/thief.png"
     },
     archer: {
@@ -133,12 +133,12 @@ const characters = {
                 text: "Tries to outrun the enemy"
             }
         ],
-        bio: "The Archer grew up with elves, learning how to shoot a fly into a tree with an arrow, without killing it. He moves quickly and has a powerful arsenal.",
+        bio: "The Archer grew up with elves, who trained him to be agile and an expert marksman.",
         source: "images/archer.png"
     },
 };
 
-const TIME_BETWEEN_TURNS = 3000; // Use 3000 for normal gameplay
+const TIME_BETWEEN_TURNS = 300; // Use 3000 for normal gameplay
 
 const enemy = "orc"; // since we only use one type of enemy
 let hero;
@@ -179,11 +179,11 @@ function showBio(e) {
         </ul>
         <span>Moves:</span>
         <ul class="hero-bio moves">
-            <li>${characters[hero].moves[0].name} - Power: ${characters[hero].moves[0].power}, Accuracy: ${characters[hero].moves[0].accuracy * 100}%</li>
-            <li>${characters[hero].moves[1].name} - Power: ${characters[hero].moves[1].power}, Accuracy: ${characters[hero].moves[1].accuracy * 100}%</li>
-            <li>${characters[hero].moves[2].name} - ${characters[hero].moves[2].text}</li>
+            <li>${characters[hero].moves[0].name}: ${characters[hero].moves[0].power} power, ${characters[hero].moves[0].accuracy * 100}% accuracy</li>
+            <li>${characters[hero].moves[1].name}: ${characters[hero].moves[1].power} power, ${characters[hero].moves[1].accuracy * 100}% accuracy</li>
+            <li>${characters[hero].moves[2].name}: ${characters[hero].moves[2].text}</li>
         </ul>
-        <button id="start-battle">Battle as this hero!</button>
+        <button id="start-battle">Battle as this hero</button>
     `;
     document.getElementById("start-battle").addEventListener("click", setupBattle);
 }

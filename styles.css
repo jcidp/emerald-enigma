@@ -69,7 +69,7 @@ main {
     line-height: 1.5;
 }
 
-#start-btn {
+#start-btn, #start-battle {
     display: block;
     margin: 1em auto;
     padding: 0.15em 2em;
@@ -86,29 +86,45 @@ main {
     max-width: 100%;
 }
 
+#selection {
+    padding: 0 0.5em;
+}
+
 .hero-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
     gap: 1em;
 }
 
+.hero>p {
+    text-align: center;
+}
+
 .hero-bio.stats{
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr); */
     display: flex;
     justify-content: space-around;
 }
 
+#hero-bio>p {
+    margin: 0.75em 0;
+}
+
+#hero-bio>span {
+    font-weight: bold;
+}
+
 ul {
-    /* text-align: center; */
-    margin-top: 0;
     padding-left: 10px;
+    margin-bottom: 0.75em;
     /*list-style-type: none;*/
 }
 
 ul>li::marker {
-    color: red;
     content: "- "
+}
+
+#start-battle {
+    margin: 0.5em auto;
 }
 
 /* Battle Screen */
@@ -139,3 +155,15 @@ ul>li::marker {
     #action-3:hover ~ div>ol>li.three {
     font-weight: bold;
 }
+
+
+/* 
+.hero>img {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.hero {
+    display: grid;
+    justify-items: center;
+} */
