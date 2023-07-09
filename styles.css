@@ -25,10 +25,13 @@ header {
 }
 
 h1 {
-    font-family: 'MedievalSharp', cursive;
     text-align: center;
     font-size: 1.5rem;
     color: white;
+}
+
+h1, button {
+    font-family: 'MedievalSharp', cursive;
 }
 
 main {
@@ -69,11 +72,10 @@ main {
     line-height: 1.5;
 }
 
-#start-btn, #start-battle {
+#start-btn, #start-battle, .battle-end {
     display: block;
     margin: 1em auto;
     padding: 0.15em 2em;
-    font-family: 'MedievalSharp', cursive;
     font-size: 1.2rem;
     font-weight: bold;
     background-color: #a7813a;
@@ -135,26 +137,90 @@ ul>li::marker {
 }
 
 #hero {
-    max-width: 40%;
+    max-width: 90%;
+}
+
+#battle h2 {
+    text-align: center;
+}
+
+#battle {
+    grid-template-rows: 1fr min-content min-content;
+    row-gap: 0.5em;
+    align-content: space-between;
+}
+
+.enemy.stats {
+    padding-right: 0.5rem;
+    text-align: end;
+}
+
+.dialog {
+    min-height: 3rem;
+    padding: 0 0.5rem;
 }
 
 .user-section {
-    display: flex;
+    display: grid;
+    grid-template-columns: 5fr 5fr;
+    justify-items: center;
+}
+
+.hero.stats {
+    margin-bottom: 0.25em;
+    justify-self: start;
+    padding-left: 0.5em;
+}
+
+.battle-menu {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+}
+
+.battle-menu>p {
+    text-align: center;
+    margin-bottom: 0.25em;
 }
 
 .action-description {
-    font-size: 0.75rem;
+    font-size: 0.825rem;
+    margin-bottom: 0.75em;
+    padding: 0 0.25em 0 1em;
 }
 
-.action-description {
-    padding-left: 1em;
+.hero-action {
+    display: block;
+    margin: 0 auto 0.25em;
+    padding: 0.25em;
+    min-width: 8rem;
+    background-color: #a7813a;
+    color: white;
+    border-width: 1px;
+    border-radius: 0.25em;
+    font-weight: bold;
 }
 
+.hero-action:disabled {
+    background-color: gray;
+}
+
+.battle-end-container {
+    align-content: space-around;
+    height: 80%;
+}
+
+.battle-end {
+    font-size: 1em;
+    margin: 0;
+    width: 100%;
+}
+
+/* This only makes sense with a media query for desktop 
 #action-1:hover ~ div>ol>li.one,
     #action-2:hover ~ div>ol>li.two,
     #action-3:hover ~ div>ol>li.three {
     font-weight: bold;
-}
+}*/
 
 
 /* 

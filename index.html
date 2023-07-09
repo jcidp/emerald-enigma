@@ -49,20 +49,27 @@
             <div id="hero-bio">Click/Tap a hero to get to know them</div>
         </section>
         <section id="battle">
-            <h2>Battle!</h2>
-            <img id="bg" src="images/monster_in_jungle.png" alt="An angry orc with red eyes and blue skin, dressed in battle armor and with a weapon in their hand, in a jungle.">
-            <p class="enemy stats">HP: <span id="enemy-hp"></span>/<span id="initial-enemy-hp"></span></p>
+            <div class="enemy-section">
+                <h2>Battle!</h2>
+                <img id="bg" src="images/monster_in_jungle.png" alt="An angry orc with red eyes and blue skin, dressed in battle armor and with a weapon in their hand, in a jungle.">
+                <p class="enemy stats">Enemy HP: <span id="enemy-hp"></span> / <span id="initial-enemy-hp"></span></p>
+            </div>
             <p class="dialog"></p>
             <div class="user-section">
+                <p class="hero stats">Hero HP: <span id="hero-hp"></span> / <span id="initial-hero-hp"></span></p>
                 <img id="hero" src="images/wizard.png" alt="Your hero, ready to battle the angry orc.">
                 <div class="battle-menu">
-                    <p id="hero stats">HP: <span id="hero-hp"></span>/<span id="initial-hero-hp"></span></p>
-                    <button class="hero-action" id="action-1" value="1"></button>
-                    <button class="hero-action" id="action-2" value="2"></button>
-                    <button class="hero-action" id="action-3" value="3"></button>
+                    <p>Hero Actions:</p>
                     <div class="action-description"></div>
-                    <button class="battle-end reset">Fight again!</button>
-                    <button class="battle-end change-hero">Change hero</button>
+                    <div class="hero-action-container">
+                        <button class="hero-action" id="action-1" value="1"></button>
+                        <button class="hero-action" id="action-2" value="2"></button>
+                        <button class="hero-action" id="action-3" value="3"></button>
+                    </div>
+                    <div class="battle-end-container">
+                        <button class="battle-end reset">Fight again!</button>
+                        <button class="battle-end change-hero">Change hero</button>
+                    </div>
                 </div>
             </div>
         </section>

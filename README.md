@@ -7,7 +7,7 @@ The game includes 3 screens:
 3. The battle screen
 
 TODOs:
-- Style the game properly and ensure mobile responsiveness
+- Make it responsive on desktop
 - Finish README files
     - Change hero and action descriptions to the last version
 
