@@ -92,7 +92,7 @@ const characters = {
                 text: "Quickly stabs the enemy with a piercing attack"
             },
             {
-                name: "Low blow",
+                name: "Low Blow",
                 power: 36,
                 accuracy: 0.7,
                 text: "Goes for a low, but strong hit"
@@ -138,7 +138,7 @@ const characters = {
     },
 };
 
-const TIME_BETWEEN_TURNS = 300; // Use 3000 for normal gameplay
+const TIME_BETWEEN_TURNS = 3000; // Use 3000 for normal gameplay
 
 const enemy = "orc"; // since we only use one type of enemy
 let hero;
@@ -164,6 +164,7 @@ function loadImages() {
 document.getElementById("start-btn").addEventListener("click", showSelectionScreen);
 
 function showSelectionScreen() {
+    document.querySelector("header").style.display = "none";
     startScreen.style.display = "none";
     battleScreen.style.display = "none";
     selectionScreen.style.display = "block";
@@ -224,19 +225,11 @@ function setupBattle() {
     heroHP = characters[hero].stats.hp;
     document.getElementById("initial-enemy-hp").textContent = enemyHP;
     document.getElementById("initial-hero-hp").textContent = heroHP;
-    enemyHPText.textContent = enemyHP;
-    heroHPText.textContent = heroHP;
     actionButtons.forEach((btn, i) => {
         btn.textContent = characters[hero].moves[i].name;
     });
     document.getElementById("hero").src = characters[hero].source;
-    dialog.textContent = "An angry orc has spotted you! Quick, do something!";
-    loadDescriptions();
-    actionButtons.forEach(btn => btn.disabled = false);
-    heroActions.style.display = "grid";
-    battleEnd.style.display = "none";
-    // resetBtn.style.display = "none";
-    // changeHeroBtn.style.display = "none";
+    resetBattle();
 }
 
 function activateAction(e) {
@@ -291,8 +284,6 @@ function endBattle() {
     actionDescription.textContent = "";
     heroActions.style.display = "none";
     battleEnd.style.display = "grid";
-    // resetBtn.style.display = "inline";
-    // changeHeroBtn.style.display = "inline";
 }
 
 function resetBattle(e) {
@@ -305,8 +296,6 @@ function resetBattle(e) {
     actionButtons.forEach(btn => btn.disabled = false);
     heroActions.style.display = "grid";
     battleEnd.style.display = "none";
-    // resetBtn.style.display = "none";
-    // changeHeroBtn.style.display = "none";
 }
 
 function calculateDamage(user, target, move) {

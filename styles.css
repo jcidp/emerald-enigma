@@ -10,6 +10,11 @@
     padding: 0;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
 body {
     display: grid;
     grid-template-rows: min-content 1fr;
@@ -45,7 +50,7 @@ main {
 #start-screen {
     display: grid;
     align-content: space-between;
-    background-image: url(images/monster_in_jungle.png);
+    background-image: url(images/bg2.png);
     min-height: calc(100vh - max(1.5rem, 27px) - 1em); /* To simplify this */
 }
 
@@ -87,7 +92,7 @@ main {
 /* Hero Selection Screen */
 
 .hero>img {
-    max-width: 100%;
+    max-height: 220px;
 }
 
 #selection {
@@ -128,7 +133,7 @@ ul>li::marker {
 }
 
 #start-battle {
-    margin: 0.5em auto 0;
+    margin: 0.5em auto;
 }
 
 /* Battle Screen */
@@ -136,10 +141,6 @@ ul>li::marker {
 #enemy-container {
     display: grid;
     place-content: center;
-}
-
-#bg {
-    max-height: 512px;
 }
 
 #hero {
@@ -176,6 +177,7 @@ ul>li::marker {
     margin-bottom: 0.25em;
     justify-self: start;
     padding-left: 0.5em;
+    display: flex;
 }
 
 .battle-menu {
@@ -224,27 +226,3 @@ ul>li::marker {
     margin: 0;
     width: 100%;
 }
-
-/* This only makes sense with a media query for desktop 
-#action-1:hover ~ div>ol>li.one,
-    #action-2:hover ~ div>ol>li.two,
-    #action-3:hover ~ div>ol>li.three {
-    font-weight: bold;
-}*/
-
-
-/* 
-.hero>img {
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-.hero {
-    display: grid;
-    justify-items: center;
-} */
-
-/* Media Queries for Desktop */
-/* @media (min-width: 641px) {
-
-} */

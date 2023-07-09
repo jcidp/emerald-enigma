@@ -7,7 +7,6 @@ The game includes 3 screens:
 3. The battle screen
 
 TODOs:
-- Make it responsive on desktop
 - Finish README files
     - Change hero and action descriptions to the last version
 
@@ -21,6 +20,8 @@ Nice-to-have:
     - A disappearing animation when the orc dies
     - A gray color animation when the hero dies
     - Transition animations between screens
+- Change layout for wider screens
+- Change battle layout for mobile to include hero in bg image
 - Add a toggle menu built on pure CSS
     - Turn music on/off
     - Turn sound effects on/off
@@ -31,29 +32,56 @@ Nice-to-have:
 - Add keybinds for using moves on desktop: 1, 2 & 3.
 - Balance character stats and moves
 
+## Hero Stats
+Wizard:
+- Attack: 120
+- Defense: 100
+- HP: 80
+
+Warrior:
+- Attack: 80
+- Defense: 100
+- HP: 120
+
+Archer:
+- Attack: 120
+- Defense: 80
+- HP: 100
+
+Thief:
+- Attack: 100
+- Defense: 100
+- HP: 100
+
+Orc:
+- Attack: 100
+- Defense: 100
+- HP: 120
+
+## Hero Actions
 Wizard actions:
-1. Lightning: Releases a bolt of lightning that damages the enemy. Does 20 hp of damage and always hits.
-2. Fireball: A powerful attack that does 40 hp damage, but has an accuracy of 60%.
-3. The Wacky Wave: This wizard spent two decades perfecting this ancient dance move in the Shrine of Wisdom. It's unlikely to help, but you never know.
+1. Lightning: Shoots a bolt of lightning towards the enemy". 25 power, 100% accuracy.
+2. Fireball: Throws a powerful fireball at the enemy. 50 power, 50% accuracy.
+3. Dance: Performs a powerful ancient dance. 200 power, 10% accuracy.
 
 Warrior actions:
-1. Slash: Swing that pointy sword to cut your enemy and do 20 points of damage.
-2. Whirlwind: Your next 3 attacks will have a 40% to do a critical hit for 2x the damage, but you also take 50% more damage.
-3. Scream: Let out all that anger into a, hopefully, terrifying scream.
+1. Slash: Slashes the enemy with a fierce strike. 25 power, 100% accuracy.
+2. Whirlwind: Spins, throwing a series of attacks. 31 power, 80% accuracy.
+3. Scream: Attempts to intimidate the enemy. 200 power, 10% accuracy.
 
 Archer actions:
-1. Shoot Arrow: Shoots an arrow that does 20 points of damage to enemies. The enemy has a 20% chance of not being able to hit you next turn.
-2. Throw Bomb: A powerful explosive that deals 40 points of damage. They're not very stable though and explode early about half of the times.
-3. Run: The archer still can't stop talking about how he was in his archers academy track team. He's always ready to run, if that helps.
+1. Shoot Arrow: Shoots an arrow straight towards the enemy. 25 power, 100% accuracy
+2. Throw Bomb: Throws a bomb at the enemy's face. 42 power, 60% accuracy.
+3. Climb Tree: Tries to attack the enemy from above. 200 power, 10% accuracy.
 
 Thief actions:
-1. Stab: Hit your enemy with your tiny knife for 20 damage points.
-2. Groin Kick: This thief knows no honor and will use this low punch that does 30 damage points and immobilizes the enemy for a turn, but works only in 50% of cases and can only be used once in battle.
-3. Hide: That's what thieves do best. But who knows how useful it'll be in battle.
+1. Stab: Quickly stabs the enemy with a piercing attack. 25 power, 100% accuracy
+2. Low Blow: Goes for a low, but strong hit. 36 power, 70% accuracy.
+3. Hide: Attempts to get out of sight and attack. 200 power, 10% accuracy.
 
 Orc actions:
-1. Smash: The orc swings his weapon and does 25 points of damage.
-2. Rock Throw: The orc throws a huge rock at you that does 30 damage but has an 80% change to hit.
+1. Smash: Smashes you with great strength. 25 power, 100% accuracy.
+2. Rock Throw: Throws a huge rock at you. 30 power, 75% accuracy.
 
 Image credits:
 - Hero and Monster images generated with hotpot.ai(https://hotpot.ai/art-generator)
